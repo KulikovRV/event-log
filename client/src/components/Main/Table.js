@@ -1,14 +1,21 @@
-import { useState } from 'react';
-import data from './fixtures';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import getEventsAll from '../../redux/actions/eventsActions';
 import './Table.css';
 
 function Table() {
-  const { events } = data;
+  const dispatch = useDispatch();
+  const eventsStore = useSelector((state) => state.events);
+
   const [sortConfig, setSortConfig] = useState(null);
   const [filter, setFilter] = useState(null);
 
+  useEffect(() => {
+    dispatch(getEventsAll());
+  }, []);
+
   if (sortConfig !== null) {
-    events.sort((a, b) => {
+    eventsStore.sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
         return sortConfig.direction === 'ascending' ? -1 : 1;
       }
@@ -36,9 +43,9 @@ function Table() {
 
   const filterEvents = () => {
     if (filter !== null) {
-      return events.filter((el) => +filter.key === el[filter.name]);
+      return eventsStore.filter((el) => +filter.key === el[filter.name]);
     }
-    return events;
+    return eventsStore;
   };
 
   return (
@@ -61,9 +68,9 @@ function Table() {
                 level
               </button>
               <select onChange={(e) => clickHandler({ key: e.target.value, name: 'level' })}>
-                <option>{null}</option>
-                <option>1</option>
-                <option>2</option>
+                <option value="">all</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
               </select>
             </th>
             <th>
@@ -74,7 +81,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {filterEvents().map((el) => (
+          {filterEvents()?.map((el) => (
             <tr key={el.id}>
               <td>{el.id}</td>
               <td>{el.date}</td>
