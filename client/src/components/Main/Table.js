@@ -59,7 +59,7 @@ function Table() {
               </button>
             </th>
             <th>
-              <button type="button" onClick={() => requestSort('ts')}>
+              <button type="button" onClick={() => requestSort('date')}>
                 ts
               </button>
             </th>
@@ -83,10 +83,10 @@ function Table() {
         <tbody>
           {filterEvents()?.map((el) => (
             <tr key={el.id}>
-              <td>{el.id}</td>
-              <td>{el.date}</td>
-              <td>{el.level}</td>
-              <td>{el.message}</td>
+              <td className="td-id">{el.id}</td>
+              <td className="td-date">{String(el.date)}</td>
+              <td className="td-level">{el.level}</td>
+              <td className="td-message">{el.message}</td>
             </tr>
           ))}
         </tbody>

@@ -1,6 +1,5 @@
 .table {
-	width: 100%;
-	margin-bottom: 20px;
+	margin: auto;
 	border: 1px solid #dddddd;
 	border-collapse: collapse; 
 }
@@ -13,4 +12,14 @@
 .table td {
 	border: 1px solid #dddddd;
 	padding: 5px;
+}
+
+.td-id, 
+.td-level {
+	width: 5%;
+}
+
+.td-data,
+.td-message {
+	width: 45%;
 }

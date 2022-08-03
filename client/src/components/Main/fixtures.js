@@ -6,25 +6,25 @@ const data = {
   events: [
     {
       id: 55,
-      date: '20.04.1990',
+      date: new Date('05.04.1990'),
       level: 1,
       message: 'Okay!',
     },
     {
       id: 2,
-      date: '01.11.2021',
+      date: new Date('04.20.2021'),
       level: 1,
       message: 'Best!',
     },
     {
       id: 4,
-      date: '30.01.2002',
+      date: new Date('08.02.2002'),
       level: 2,
       message: 'Message!',
     },
     {
       id: 30,
-      date: '01.01.2001',
+      date: new Date('01.01.2001'),
       level: 2,
       message: 'Alarm! Alarm! Alarm! Alarm!',
     },
