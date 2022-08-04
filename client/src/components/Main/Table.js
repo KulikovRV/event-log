@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import getEventsAll from '../../redux/actions/eventsActions';
+import { getEventsAllThunk } from '../../redux/actions/eventsActions';
 import './Table.css';
 
 function Table() {
@@ -11,7 +11,7 @@ function Table() {
   const [filter, setFilter] = useState(null);
 
   useEffect(() => {
-    dispatch(getEventsAll());
+    dispatch(getEventsAllThunk());
   }, []);
 
   if (sortConfig !== null) {
@@ -84,7 +84,7 @@ function Table() {
           {filterEvents()?.map((el) => (
             <tr key={el.id}>
               <td className="td-id">{el.id}</td>
-              <td className="td-date">{String(el.date)}</td>
+              <td className="td-date">{String(el.createdAt)}</td>
               <td className="td-level">{el.level}</td>
               <td className="td-message">{el.message}</td>
             </tr>
