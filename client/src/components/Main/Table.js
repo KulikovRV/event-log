@@ -6,12 +6,17 @@ import './Table.css';
 function Table() {
   const dispatch = useDispatch();
   const eventsStore = useSelector((state) => state.events);
+  console.log('🚀 ~ file: Table.js ~ line 9 ~ Table ~ eventsStore', eventsStore);
 
   const [sortConfig, setSortConfig] = useState(null);
   const [filter, setFilter] = useState(null);
 
+  let counter = -1;
   useEffect(() => {
-    dispatch(getEventsAllThunk());
+    setInterval(() => {
+      dispatch(getEventsAllThunk());
+      counter += 1;
+    }, 5000);
   }, []);
 
   if (sortConfig !== null) {

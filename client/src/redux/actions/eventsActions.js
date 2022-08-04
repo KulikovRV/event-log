@@ -11,7 +11,6 @@ export const getEventsAllThunk = () => async (dispatch) => {
   const response = await fetch('/api/events');
   const data = await response.json();
   if (response.ok) {
-    console.log(data);
     dispatch(getEventsAll(data));
   }
 };
