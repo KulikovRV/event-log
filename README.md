@@ -7,7 +7,7 @@ Events have the following structure:
 - level (int) – event level (1 – debug, 2 –info, etc.),
 - message (string) – message text.
   
-###User interface requirements
+### User interface requirements
 React component should:
 - Occupies all free space provided by the parent component.
 - Provide the user with the following options:
