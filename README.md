@@ -1,4 +1,3 @@
-# Test task for Phishman
 ## Event-Log
 </p>React component to work with the event log and implement an API method to receive data from the server.</p>
 
